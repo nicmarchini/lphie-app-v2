@@ -1,0 +1,14 @@
+{
+  "name": "lphie-app-v2-backend",
+  "version": "1.0.0",
+  "description": "dynamo-api",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nic Marchini",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.131.0"
+  }
+}
