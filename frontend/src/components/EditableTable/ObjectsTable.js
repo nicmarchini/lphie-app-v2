@@ -9,8 +9,13 @@ class ObjectsTable extends React.Component {
       this.search_field = props.searchField
       this.state = {};
       this.state.filterText = "";
-      this.state.schema = props.schema
+      this.state.schema = []
       this.state.objects = props.state_obj;
+
+      for (let key in this.state.objects[0].obj){
+        this.state.schema.push(key)
+      }
+
     }
 
     handleUserInput(filterText) {
@@ -27,16 +32,15 @@ class ObjectsTable extends React.Component {
       var id = (+ new Date() + Math.floor(Math.random() * 999999)).toString(36);
       var object = {
         id: id,
-        obj: {
-            field1: "",
-            field2: "",
-            field3: "",
-            field4: 0
-        }
+        obj: {}
       }
+
+      for (let field in this.state.schema){
+        object.obj[this.state.schema[field]] = ""
+      }
+
       this.state.objects.push(object);
       this.setState(this.state.objects);
-  
     };
   
     handleTable(evt) {
