@@ -3,39 +3,14 @@ import SearchBar from '../SearchBar/SearchBar';
 import EditableTable from './EditableTable';
 
 class ObjectsTable extends React.Component {
-
     constructor(props) {
       super(props);
 
-      this.search_field = 'field1'
+      this.search_field = props.searchField
       this.state = {};
       this.state.filterText = "";
-      this.state.schema = [
-          'field1',
-          'field2',
-          'field3',
-          'field4'
-      ]
-      this.state.objects = [
-        {
-            id: 1,
-            obj: {
-                field1: 'mock field',
-                field2: 'mock field',
-                field4: 1,
-                field3: 'mock field'
-            }
-        },
-        {
-            id: 2,
-            obj: {
-                field1: 'mock field',
-                field2: 'mock field',
-                field4: 1,
-                field3: 'mock field'
-            }
-        }
-      ];
+      this.state.schema = props.schema
+      this.state.objects = props.state_obj;
     }
 
     handleUserInput(filterText) {

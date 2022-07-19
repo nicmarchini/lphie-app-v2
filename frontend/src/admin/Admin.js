@@ -1,11 +1,13 @@
-import ObjectsTable from "../components/EditableTable/ObjectsTable";
 import './Admin.css'
+import BrothersTable from './BrothersTable';
+import ClassesTable from './ClassesTable';
 
 function Admin() {
     return (
       <div className="container">
         {/* Header with inline css */}
-        <ObjectsTable/>
+        <BrothersTable/>
+        <ClassesTable/>
       </div>
     );
   }
