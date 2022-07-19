@@ -8,7 +8,8 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='flex place-content-end'>
+        
         <input  type="text"
                 placeholder="Search..." 
                 value={this.props.filterText}

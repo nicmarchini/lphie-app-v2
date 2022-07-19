@@ -1,5 +1,7 @@
 import React from 'react';
 import EditableRow from './EditableRow';
+// import './EditableTable.css';
+// import '../../index.css'
 
 class EditableTable extends React.Component {
   
@@ -26,11 +28,11 @@ class EditableTable extends React.Component {
         });
 
         return (
-            <div>
-            <button type="button" onClick={this.props.onRowAdd}>Add</button>
+            // <div className='flex place-content-center'>
+            <div >
             <table>
                 <thead>
-                    <tr>
+                    <tr >
                         {column_titles}
                     </tr>
                 </thead>
@@ -38,7 +40,11 @@ class EditableTable extends React.Component {
                     {object}
                 </tbody>
             </table>
+            <div className='flex place-content-center'>
+            <button type="button" className="px-4 py-1 text-sm text-purple-600 bg-purple-200 rounded-none border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none" onClick={this.props.onRowAdd}>ADD ROW</button>
             </div>
+            </div>
+            // </div>
         );
     }
 }

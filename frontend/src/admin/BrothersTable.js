@@ -12,7 +12,7 @@ class BrothersTable extends React.Component {
 
     render() {
         return (
-            <div>
+            <div >
                 <ObjectsTable   state_obj={this.bro_obj}
                                 searchField={this.search_field}/>
             </div>
