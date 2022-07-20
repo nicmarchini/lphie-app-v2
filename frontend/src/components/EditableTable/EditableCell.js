@@ -4,7 +4,7 @@ class EditableCell extends React.Component {
     render() {
         return (
             <td>
-                <input
+                <input className='text-md pl-3 py-1'
                     type='text'
                     name={this.props.cell.type}
                     id={this.props.cell.id}

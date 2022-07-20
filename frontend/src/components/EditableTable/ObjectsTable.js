@@ -8,6 +8,7 @@ class ObjectsTable extends React.Component {
 
       this.search_field = props.searchField
       this.state = {};
+      this.state.editMode = false
       this.state.filterText = "";
       this.state.schema = []
       this.state.objects = props.state_obj;
@@ -28,6 +29,11 @@ class ObjectsTable extends React.Component {
       this.setState(this.state.objects);
     };
   
+    handleEdit(){
+      let mode = !this.state.editMode;
+      this.setState({editMode:mode})
+    }
+
     handleAddEvent(evt) {
       var id = (+ new Date() + Math.floor(Math.random() * 999999)).toString(36);
       var object = {
@@ -42,8 +48,25 @@ class ObjectsTable extends React.Component {
       this.state.objects.push(object);
       this.setState(this.state.objects);
     };
-  
+    
+    handleClear(){
+      this.setState({filterText: ""})
+    }
+
+    // handleChangeEditMode() {
+    //   if (this.state.editMode){
+    //     this.state.editMode = false
+    //   } else {
+    //     this.state.editMode = true
+    //   }
+    // };
+
+    // setEdit(bool) {
+    //   this.setState({editMode:bool});
+    // };
+
     handleTable(evt) {
+      if (this.state.editMode){
         var item = {
             id: evt.target.id,
             name: evt.target.name,
@@ -60,22 +83,61 @@ class ObjectsTable extends React.Component {
         }
 
         return object;
-        });
+        }
+      );
 
     this.setState({objects:newObjects});
+      }
     };
 
     render() {
         return (
-            <div>
-                <SearchBar filterText={this.state.filterText} onUserInput={this.handleUserInput.bind(this)}/>
+          <div >
+            <div className="" >
+               <button
+                  disabled={this.state.editMode}
+                  key='edit'
+                  type="button"
+                  className="h-10 px-6 mr-2 font-bold
+                            rounded-md bg-black text-white text-md
+                            border hover:text-white hover:bg-blue-700
+                            hover:border-transparent focus:outline-none
+                            disabled:opacity-25
+                            "
+                            onClick={
+                              this.handleEdit.bind(this)
+                            }
+                            >
+                            EDIT
+                </button>
+                <button
+                  disabled={!this.state.editMode}
+                  type="button"
+                  key='save'
+                  className="h-10 px-6 font-bold
+                            rounded-md bg-black text-white text-md
+                            border hover:text-white hover:bg-blue-700
+                            hover:border-transparent focus:outline-none
+                            disabled:opacity-25
+                            "
+                            onClick={
+                              this.handleEdit.bind(this)
+                            }>
+                            SAVE
+                </button>
+            </div>
+                
+                <SearchBar  onClearEvent={this.handleClear.bind(this)}
+                            filterText={this.state.filterText}
+                            onUserInput={this.handleUserInput.bind(this)}/>
                 <EditableTable  onTableUpdate={this.handleTable.bind(this)}
                                 onRowAdd={this.handleAddEvent.bind(this)}
                                 onRowDel={this.handleRowDel.bind(this)}
                                 objects={this.state.objects}
                                 filterText={this.state.filterText}
                                 schema={this.state.schema}
-                                searchField={this.search_field}/>
+                                searchField={this.search_field}
+                                />
             </div>
         );
     }

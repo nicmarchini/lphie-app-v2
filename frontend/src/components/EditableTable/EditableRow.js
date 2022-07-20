@@ -28,11 +28,16 @@ class EditableRow extends React.Component {
             <tr>
                 { cells }
                 <td>
-                    <input
+                    <input className="ml-1 px-2 font-bold
+                                            rounded-md bg-black text-white text-md
+                                            border hover:text-white
+                                            hover:bg-blue-700 hover:border-transparent
+                                            focus:outline-none"
                         type="button"
                         onClick={this.onDelEvent.bind(this)}
                         value="X"
                         />
+                    
                 </td>
             </tr>
         );
