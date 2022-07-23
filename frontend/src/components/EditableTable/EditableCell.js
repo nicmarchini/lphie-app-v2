@@ -4,7 +4,7 @@ import EditableField from './EditableField';
 class EditableCell extends React.Component {
     render() {
         return (
-            <td >
+            <td>
                 <EditableField
                     cell={this.props.cell}
                     onTableUpdate={this.props.onTableUpdate}/>
