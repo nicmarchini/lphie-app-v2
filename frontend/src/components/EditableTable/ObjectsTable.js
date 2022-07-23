@@ -108,7 +108,7 @@ class ObjectsTable extends React.Component {
                               this.handleEdit.bind(this)
                             }
                             >
-                            EDIT
+                            edit
                 </button>
                 <button
                   disabled={!this.state.editMode}
@@ -123,7 +123,7 @@ class ObjectsTable extends React.Component {
                             onClick={
                               this.handleEdit.bind(this)
                             }>
-                            SAVE
+                            save
                 </button>
             </div>
                 

@@ -14,9 +14,9 @@ function Admin() {
         </div> */}
         <br></br>
         <br></br>
-        <div className='flex place-content-center'>
+        {/* <div className='flex place-content-center'>
           <ClassesTable/>
-        </div>
+        </div> */}
         <br></br>
         <br></br>
         <div className='flex place-content-center'>

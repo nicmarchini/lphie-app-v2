@@ -8,7 +8,6 @@ class ObjectsColumn extends React.Component {
 
     //   this.search_field = props.searchField
       this.state = {};
-      this.state.editMode = false
     //   this.state.filterText = "";
       this.state.schema = []
       this.state.object = props.state_obj;
@@ -29,10 +28,7 @@ class ObjectsColumn extends React.Component {
     //   this.setState(this.state.objects);
     // };
   
-    handleEdit(){
-      let mode = !this.state.editMode;
-      this.setState({editMode:mode})
-    }
+
 
     // handleAddEvent(evt) {
     //   var id = (+ new Date() + Math.floor(Math.random() * 999999)).toString(36);
@@ -66,7 +62,7 @@ class ObjectsColumn extends React.Component {
     // };
 
     handleTable(evt) {
-      if (this.state.editMode){
+      if (this.props.editable){
         var item = {
             id: evt.target.id,
             name: evt.target.name,
@@ -92,7 +88,7 @@ class ObjectsColumn extends React.Component {
           <div >
             <div className="" >
                <button
-                  disabled={this.state.editMode}
+                  disabled={this.props.editable}
                   key='edit'
                   type="button"
                   className="h-10 px-6 mr-2 font-bold
@@ -102,13 +98,13 @@ class ObjectsColumn extends React.Component {
                             disabled:opacity-25
                             "
                             onClick={
-                              this.handleEdit.bind(this)
+                              this.props.handleEdit
                             }
                             >
-                            EDIT
+                            edit
                 </button>
                 <button
-                  disabled={!this.state.editMode}
+                  disabled={!this.props.editable}
                   type="button"
                   key='save'
                   className="h-10 px-6 font-bold
@@ -118,9 +114,9 @@ class ObjectsColumn extends React.Component {
                             disabled:opacity-25
                             "
                             onClick={
-                              this.handleEdit.bind(this)
+                             this.props.handleEdit
                             }>
-                            SAVE
+                            save
                 </button>
             </div>
                 
